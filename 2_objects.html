@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Objects</title>
+	</head>
+	<body>
+		<h1>Movies</h1>
+		<form>
+			<div><span>Name</span><input type="text" id="name" name="name"/></div>
+			<div><span>Director</span><input type="text" id="director" name="director"/></div>
+			<div><span>Producer</span><input type="text" id="producer" name="producer"/></div>
+			<div><span>Actors</span><input type="text" id="actors" name="actors"/></div>
+			
+			<input type="button" onclick="addMovie();" value="Add Movie"/>
+			<input type="button" onclick="displayMovies();" value="Show All"/>
+			
+		</form>
+		<script type="text/javascript" src="2_tempInnerFunctions.js"></script>
+		<script type="text/javascript" src="3_inheritance.js"></script>
+		<script>
+			function addMovie() {
+				
+				var movie = {
+					"name": document.getElementById("name").value,
+					"director": document.getElementById("director").value,
+					"producer": document.getElementById("producer").value,
+					"actors": document.getElementById("actors").value
+				
+				};
+				MovieManager.add(movie);
+			}
+			
+			function displayMovies() {
+				MovieManager.display();
+			}
+		</script>
+	</body>
+</html>

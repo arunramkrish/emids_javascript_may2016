@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+	<head>
+	<title>Function Invocation</title>
+	</head>
+	<body>
+		<h1>Invoke function</h1>
+		<form>
+			<input type="text" id="entry" name="entry"/>
+			<input type="button" onclick="displayEntry(getMessage);" value="Display"/>
+		</form>
+		<script>
+			function d() {
+				var messageFn;
+				if (arguments.length > 0) {
+					messageFn = arguments[0];
+				}
+				var inputElement = document.getElementById("entry");
+				var value =  inputElement.value;
+				var msg = (messageFn) ? messageFn(value) : ("User entered " + value);
+				console.log (msg);
+				alert(msg);
+			}
+			function getMessage(value) {
+				return "Computed Message " + value;
+			}
+			var displayEntry = d;
+		</script>
+	</body>
+</html>
