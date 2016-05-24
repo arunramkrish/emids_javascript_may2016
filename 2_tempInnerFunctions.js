@@ -16,3 +16,15 @@ var MovieManager = (function() {
 		display : displayImpl
 	};
 })();
+
+function myFunction() {
+}
+myFunction.otherFunction = function() {
+}
+myFunction.otherFunction();
+
+
+
+
+
+

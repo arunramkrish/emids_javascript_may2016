@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Image Gallery Demo</title>
+        <link rel="stylesheet" href="imageGallery.css" type="text/css"/>
+    </head>
+    <body>
+        <h1>Image Gallery Demo</h1>
+        <div id="container" style="height:300px;">
+        </div>
+        
+        <script type="text/javascript" src="imageGallery.js"></script>
+        
+        <script>
+            (function() {
+  var httpRequest;
+  (function() { makeRequest('data/images.json'); })();
+
+  function makeRequest(url) {
+    httpRequest = new XMLHttpRequest();
+
+    if (!httpRequest) {
+      alert('Giving up :( Cannot create an XMLHTTP instance');
+      return false;
+    }
+    httpRequest.onreadystatechange = loadImages;
+    httpRequest.open('GET', url);
+    httpRequest.send();
+  }
+
+  function loadImages() {
+    if (httpRequest.readyState === XMLHttpRequest.DONE) {
+      if (httpRequest.status === 200) {
+            
+                var images = JSON.parse(httpRequest.responseText);
+                window.imageGallery1 = _img("container", {
+                   title: "My Image Gallery",
+                    images: images
+                });
+                        //window.imageGallery1.on("imageSelected", function(image) {
+              //  console.log(image.src + " selected");
+            //});
+
+      } else {
+        alert('There was a problem with the request.');
+      }
+    }
+  }
+})();
+        </script>
+    </body>
+</html>

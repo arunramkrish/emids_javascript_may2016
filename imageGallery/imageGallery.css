@@ -1,0 +1,14 @@
+.selected-image {
+    align:center;
+}
+.ribbon-img {
+    float:left;
+    cursor:pointer
+}
+.selectedImageDiv {
+    text-align: center;
+    height:80%;
+}
+.image-gallery {
+    height:100%;
+}
